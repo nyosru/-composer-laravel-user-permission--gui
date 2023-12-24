@@ -1,2 +1,3 @@
-# -composer-laravel-user-permission--gui
-графический интерфейс для работы с ролями пользователй из  composer-laravel-user-permission
+# phpcat-com--laravel-composer-user-permission
+
+привет кореша ) эта штука для управления правами пользователей в вашем проекте
