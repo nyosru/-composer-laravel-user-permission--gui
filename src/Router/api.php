@@ -2,12 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
-//Route::view('/22222227777777', 'ar.item22' )->name('show2333');
+//Route::get('phpcat/permission', function () {
+//    return view('phpcat.index');
+//    // return response(200, 'good' );
+//});
 
-Route::get('phpcat/permission', function () {
-    return view('phpcat.index');
-    // return response(200, 'good' );
-});
+
+
+
+
+
+
 
 
 
