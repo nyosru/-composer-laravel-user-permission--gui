@@ -1,27 +1,25 @@
 <?php
 
-namespace Phpсatсom\Permission\Gui\Controllers;
+namespace Phpсatсom\Permission_gui\Controllers;
 //namespace  App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-//use Phpcatcom\Permission\Models\Role;
-use Phpcatcom\Permission\Models\User;
+use Phpcatcom\Permission\Models\Role;
 
 //class PermissionController extends BigControllers
-class UserController extends Controller
+class RoleController extends Controller
 {
 
     public function index()
     {
         $in = PermissionGuiController::$in;
-        $in['data'] = User::all();
-        return view('phpcatcom/permission-gui::users', $in);
+        $in['roles'] = Role::all();
+        return view('phpcatcom/permission-gui::roles', $in);
     }
 
-    public function store( Request $request )
+    public function store()
     {
-        dd($request);
     }
 
     public function create()
