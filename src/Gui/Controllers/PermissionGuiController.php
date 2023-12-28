@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpсatсom\PermissionGui\Controllers;
+namespace Phpсatсom\Permission\Gui\Controllers;
 //namespace  App\Http\Controllers;
 
 use App\Http\Controllers\Controller;

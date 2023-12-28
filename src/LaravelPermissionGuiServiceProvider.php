@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpcatcom\Permission\Gui;
+namespace Phpcatcom\Permission;
 
 //use PhpCatCom\Middleware\AuthRoles;
 use Illuminate\Support\ServiceProvider;
@@ -26,8 +26,8 @@ class LaravelPermissionGuiServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'phpcatcom/permission-gui');
 
-        require_once(__DIR__ . '/Router/web.php');
-        require_once(__DIR__ . '/Router/api.php');
+        require_once(__DIR__ . '/Gui/Router/web.php');
+        require_once(__DIR__ . '/Gui/Router/api.php');
 
     }
 
