@@ -2,12 +2,12 @@
 
 @section('content')
 
-    roles: {{ $roles }}
+    data: {{ $data }}
 
     <Br/>
     <Br/>
 
-    <form action="{{ route('phpcatcom.permission.role.store') }}" method="post">
+    <form action="">
         <label>
             НАзвание
             <br/>

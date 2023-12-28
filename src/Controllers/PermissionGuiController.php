@@ -1,13 +1,14 @@
 <?php
 
-namespace PhpCatCom\Controllers;
+namespace Phpсatсom\Permission\Gui\Controllers;
 //namespace  App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use \Phpcatcom\Permission\Models\Permission as Permission;
 
 //class PermissionController extends BigControllers
-class PermissionController extends Controller
+class PermissionGuiController extends Controller
 {
 
     public static $in = ['menu' => [
@@ -15,6 +16,11 @@ class PermissionController extends Controller
             'route' => 'phpcatcom.permission.index',
             'title' => 'Управление',
             'template' => 'phpcatcom/permission-gui::index'
+        ],
+        [
+            'route' => 'phpcatcom.permission.user.index',
+            'title' => 'Пользователи',
+            'template' => 'phpcatcom/permission-gui::users'
         ],
         [
             'route' => 'phpcatcom.permission.role.index',
@@ -52,7 +58,7 @@ class PermissionController extends Controller
     public function showPlaces()
     {
 
-        self::$in['places'] = \PhpCatCom\Models\Permission::all();
+        self::$in['places'] = Permission::all();
 
         return view('phpcatcom/permission-gui::places', self::$in);
     }
