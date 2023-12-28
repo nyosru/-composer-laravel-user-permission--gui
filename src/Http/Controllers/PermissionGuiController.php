@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpсatсom\Permission_gui\Controllers;
+namespace Phpсatсom\LaravelPermissionGui\Http\Controllers;
 //namespace  App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -57,7 +57,7 @@ use Phpcatcom\Permission\Models\Permission ;
             }
             dd(22);
         }
-        
+
         public function showIndex()
         {
             return view('phpcatcom/permission_gui::index', self::$in);

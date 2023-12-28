@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpcatcom\Permission\Gui;
+namespace Phpcatcom\LaravelPermissionGui;
 
 //use PhpCatCom\Middleware\AuthRoles;
 use Illuminate\Support\ServiceProvider;

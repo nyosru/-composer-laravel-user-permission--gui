@@ -1,7 +1,7 @@
 {
   "name": "phpcatcom/laravel-permission-gui",
   "description": "gui for phpcatcom/laravel-permission (easy way for permissions management)",
-  "version": "0.7.17",
+  "version": "0.7.18",
 
   "require": {
     "php": ">=8.0.0",
@@ -11,14 +11,14 @@
 
   "autoload": {
     "psr-4": {
-      "Phpcatcom\\Permission\\Gui\\": "src/"
+      "Phpcatcom\\LaravelPermissionGui\\": "src/"
     }
   },
 
   "extra": {
     "laravel": {
       "providers": [
-        "Phpcatcom\\Permission\\Gui\\LaravelPermissionGuiServiceProvider"
+        "Phpcatcom\\LaravelPermissionGui\\LaravelPermissionGuiServiceProvider"
       ]
     }
   },
