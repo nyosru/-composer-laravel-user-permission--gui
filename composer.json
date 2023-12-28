@@ -1,13 +1,12 @@
 {
   "name": "phpcatcom/laravel-permission-gui",
   "description": "gui for phpcatcom/laravel-permission (easy way for permissions management)",
-  "version": "0.7.18",
+  "version": "0.7.19",
 
   "require": {
     "php": ">=8.0.0",
     "phpcatcom/laravel-permission": ">=1.0.0"
   },
-
 
   "autoload": {
     "psr-4": {
@@ -22,6 +21,11 @@
       ]
     }
   },
+  "support" : {
+    "issues" : "https://github.com/nyosru/composer-laravel-user-permission--gui/issues",
+    "source" : "https://packagist.org/packages/phpcatcom/laravel-permission-gui",
+    "docs" : "https://flareapp.io/docs/ignition-for-laravel/introduction"
+  },
 
   "license": "MIT",
   "authors": [
@@ -32,6 +36,7 @@
       "role": "Developer"
     }
   ],
+
   "keywords": [
     "laravel",
     "user",

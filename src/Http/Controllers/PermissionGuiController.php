@@ -1,7 +1,6 @@
 <?php
 
 namespace Phpсatсom\LaravelPermissionGui\Http\Controllers;
-//namespace  App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,7 +12,6 @@ use Phpcatcom\Permission\Models\Permission ;
 //if( !class_exists('Phpсatсom\Permission\Gui\Controllers\PermissionGuiController')) {
 //    dd('123177723');
 
-//class PermissionController extends BigControllers
     class PermissionGuiController extends Controller
     {
 
