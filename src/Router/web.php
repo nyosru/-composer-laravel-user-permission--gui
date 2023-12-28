@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-use \Phpcatcom\Permission\Gui\Controllers\PermissionGuiController;
-use \Phpсatсom\Permission\Gui\Controllers\RoleController;
-use \Phpcatcom\Permission\Gui\Controllers\UserController;
+use \Phpcatcom\Permission_gui\Controllers\PermissionGuiController;
+use \Phpсatсom\Permission_gui\Controllers\RoleController;
+use \Phpcatcom\Permission_gui\Controllers\UserController;
 
 Route::group([
         'as' => 'phpcatcom.',
