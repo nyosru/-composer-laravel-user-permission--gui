@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-use Phpcatcom\Permission_gui\Controllers\PermissionGuiController;
-use Phpсatсom\Permission_gui\Controllers\RoleController;
-use Phpcatcom\Permission_gui\Controllers\UserController;
+use Phpсatсom\LaravelPermissionGui\Http\Controllers\PermissionGuiController;
+use Phpсatсom\LaravelPermissionGui\Http\Controllers\RoleController;
+use Phpсatсom\LaravelPermissionGui\Http\Controllers\UserController;
 
 use App\Http\Controllers\Controller;
 
