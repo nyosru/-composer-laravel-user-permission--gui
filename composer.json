@@ -1,7 +1,7 @@
 {
   "name": "phpcatcom/laravel-permission-gui",
   "description": "gui for phpcatcom/laravel-permission (easy way for permissions management)",
-  "version": "0.7.19",
+  "version": "0.7.20",
 
   "require": {
     "php": ">=8.0.0",

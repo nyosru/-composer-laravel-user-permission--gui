@@ -40,19 +40,19 @@
 <body class="antialiased">
 
 <header>
-    @include('phpcatcom/permission-gui::layouts.header')
+    @include('phpcatcom/permission_gui::layouts.header')
 </header>
 <main style="min-height:80vh;">
     <div class="container mx-auto">
         <div class="grid grid-cols-4 gap-4">
             <div>
-                @include('phpcatcom/permission-gui::layouts.menu')
+                @include('phpcatcom/permission_gui::layouts.menu')
             </div>
             <div class="col-span-3">@yield('content')</div>
         </div>
     </div>
 </main>
-@include('phpcatcom/permission-gui::layouts.footer')
+@include('phpcatcom/permission_gui::layouts.footer')
 </body>
 
 {{--<script src="/bg/three.min.js"></script>--}}

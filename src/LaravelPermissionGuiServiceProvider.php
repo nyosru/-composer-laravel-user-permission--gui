@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Route;
 class LaravelPermissionGuiServiceProvider extends ServiceProvider
 //class LaravelPermissionGuiServiceProvider extends LaravelPermissionServiceProvider
 {
-    public function boot(Router $router)
+    public function boot(
+//        Router $router
+    )
     {
 
 //        $this->loadMigrationsFrom(__DIR__ . '/Database/migrations');
@@ -26,8 +28,7 @@ class LaravelPermissionGuiServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'phpcatcom/permission_gui');
 
-        require_once(__DIR__ . '/../Router/web.php');
-        require_once(__DIR__ . '/../Router/api.php');
+        require_once(__DIR__ . '/routers.php');
 
     }
 
