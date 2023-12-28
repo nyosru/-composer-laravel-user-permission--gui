@@ -46,6 +46,18 @@ use Phpcatcom\Permission\Models\Permission ;
         ]];
 
 
+        public function l(){
+            $classes = get_declared_classes();
+//                    dd($classes);
+//                    $aa = array_search('Phpcatcom',$classes);
+//                    dd($aa);
+            foreach($classes as $c){
+                if( strpos($c,'catcom') )
+                    echo $c.'<br/>';
+            }
+            dd(22);
+        }
+        
         public function showIndex()
         {
             return view('phpcatcom/permission_gui::index', self::$in);
