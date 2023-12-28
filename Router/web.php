@@ -17,12 +17,12 @@ Route::group([
             ]
             , function () {
 
-                Route::get('', function(){
-                dd(''.__FILE__ . ' ' . __LINE__.'' );
-            });
+//                Route::get('', function(){
+//                dd(''.__FILE__ . ' ' . __LINE__.'' );
+//            });
 
-//                Route::get('', [PermissionGuiController::class, 'showIndex'])
-//                    ->name('index');
+                Route::get('', [PermissionGuiController::class, 'showIndex'])
+                    ->name('index');
 
                 Route::resource('role', RoleController::class)
                     ->only('index', 'store');
