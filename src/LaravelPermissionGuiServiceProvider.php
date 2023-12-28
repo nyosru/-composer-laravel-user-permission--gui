@@ -24,10 +24,10 @@ class LaravelPermissionGuiServiceProvider extends ServiceProvider
 //
 //        $router->aliasMiddleware('auth.role', AuthRoles::class);
 
-        $this->loadViewsFrom(__DIR__ . '/resources/views', 'phpcatcom/permission_gui');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'phpcatcom/permission_gui');
 
-        require_once(__DIR__ . '/Router/web.php');
-        require_once(__DIR__ . '/Router/api.php');
+        require_once(__DIR__ . '/../Router/web.php');
+        require_once(__DIR__ . '/../Router/api.php');
 
     }
 
