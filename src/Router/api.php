@@ -8,14 +8,6 @@ use Illuminate\Support\Facades\Route;
 //});
 
 
-
-
-
-
-
-
-
-
 //
 //$d = function () {
 //

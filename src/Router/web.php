@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use \Phpcatcom\Permission\Gui\Controllers\PermissionGuiController;
-use \Phpсatсom\PermissionGui\Controllers\RoleController;
+use \Phpсatсom\Permission\Gui\Controllers\RoleController;
 use \Phpcatcom\Permission\Gui\Controllers\UserController;
 
 Route::group([
@@ -22,6 +22,7 @@ Route::group([
 
                 Route::resource('role', RoleController::class)
                     ->only('index', 'store');
+
                 Route::resource('user', UserController::class);
 
                 Route::get('places', [PermissionGuiController::class, 'showPlaces'])
