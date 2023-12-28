@@ -5,7 +5,7 @@ namespace Phpсatсom\Permission_gui\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use \Phpcatcom\Permission\Models\Permission as Permission;
+use Phpcatcom\Permission\Models\Permission ;
 
 //if( class_exists('PermissionGuiController'))
 //    dd('123123');

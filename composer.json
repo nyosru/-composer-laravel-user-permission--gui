@@ -1,7 +1,29 @@
 {
   "name": "phpcatcom/laravel-permission-gui",
   "description": "gui for phpcatcom/laravel-permission (easy way for permissions management)",
-  "version": "0.7.12",
+  "version": "0.7.15",
+
+  "require": {
+    "php": ">=8.0.0",
+    "phpcatcom/laravel-permission": ">=1.0.0"
+  },
+
+
+  "autoload": {
+    "psr-4": {
+      "Phpcatcom\\Permission_gui\\": "src/"
+    }
+  },
+
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Phpcatcom\\Permission_gui\\LaravelPermissionGuiServiceProvider"
+      ]
+    }
+  },
+
+  "license": "MIT",
   "authors": [
     {
       "name": "Sergey Baklanov php-cat.com",
@@ -17,22 +39,5 @@
     "permission",
     "php-cat.com",
     "sergey baklanov"
-  ],
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Phpcatcom\\Permission_gui\\LaravelPermissionGuiServiceProvider"
-      ]
-    }
-  },
-  "license": "MIT",
-  "require": {
-    "php": ">=8.0.0",
-    "phpcatcom/laravel-permission": ">=1.0.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Phpcatcom\\Permission_gui\\": "src/"
-    }
-  }
+  ]
 }

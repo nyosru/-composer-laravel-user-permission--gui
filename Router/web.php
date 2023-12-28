@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-use \Phpcatcom\Permission_gui\Controllers\PermissionGuiController;
-use \Phpсatсom\Permission_gui\Controllers\RoleController;
-use \Phpcatcom\Permission_gui\Controllers\UserController;
+use Phpcatcom\Permission_gui\Controllers\PermissionGuiController;
+use Phpсatсom\Permission_gui\Controllers\RoleController;
+use Phpcatcom\Permission_gui\Controllers\UserController;
+
+use App\Http\Controllers\Controller;
 
 Route::group([
         'as' => 'phpcatcom.',
@@ -17,12 +19,14 @@ Route::group([
             ]
             , function () {
 
-//                Route::get('', function(){
-//                dd(''.__FILE__ . ' ' . __LINE__.'' );
-//            });
+                Route::get('', function(){
 
-                Route::get('', [PermissionGuiController::class, 'showIndex'])
-                    ->name('index');
+//                    var_dump(Controller) ;
+                    dd(    ''.__FILE__ . ' ' . __LINE__.'' );
+            });
+
+//                Route::get('', [PermissionGuiController::class, 'showIndex'])
+//                    ->name('index');
 
                 Route::resource('role', RoleController::class)
                     ->only('index', 'store');
