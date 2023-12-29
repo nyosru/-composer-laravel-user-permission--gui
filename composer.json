@@ -1,7 +1,7 @@
 {
   "name": "phpcatcom/laravel-permission-gui",
   "description": "easy way for permissions management",
-  "version": "0.7.31",
+  "version": "0.7.32",
   "authors": [
     {
       "name": "Sergey Baklanov php-cat.com",
@@ -20,7 +20,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Phpcatcom\\Permission\\Gui\\LaravelPermissionServiceProvider"
+        "Phpcatcom\\Permission\\Gui\\LaravelPermissionGuiServiceProvider"
       ]
     }
   },

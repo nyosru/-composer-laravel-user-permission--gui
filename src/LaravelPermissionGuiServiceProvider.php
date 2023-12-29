@@ -6,9 +6,11 @@ use PhpCatCom\Middleware\AuthRoles;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Router;
 
-class LaravelPermissionServiceProvider extends ServiceProvider
+class LaravelPermissionGuiServiceProvider extends ServiceProvider
 {
-    public function boot(Router $router)
+    public function boot(
+//        Router $router
+    )
     {
 //        $this->loadMigrationsFrom(__DIR__ . '/Database/migrations');
 //
@@ -20,6 +22,9 @@ class LaravelPermissionServiceProvider extends ServiceProvider
 //        }
 //
 //        $router->aliasMiddleware('auth.role', AuthRoles::class);
+
+        require_once(__DIR__ . '/routers.php');
+
     }
 
     public function register()
