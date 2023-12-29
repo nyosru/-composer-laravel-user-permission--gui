@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpcatcom\Permission_gui;
+namespace Phpcatcom\Permission\Gui;
 
 use PhpCatCom\Middleware\AuthRoles;
 use Illuminate\Support\ServiceProvider;

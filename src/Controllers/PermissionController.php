@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpcatcom\Permission\Controllers;
+namespace Phpcatcom\Permission\Gui\Controllers;
 //namespace  App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
