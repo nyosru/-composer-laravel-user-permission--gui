@@ -1,13 +1,41 @@
-@extends('phpcatcom/permission_gui::layouts.app')
+@extends('phpcatcom/permission/gui::layouts.app')
 
 @section('content')
 
-    data: {{ $data }}
+{{--    data: {{ $data }}--}}
+{{--    <Br/>    <Br/>--}}
 
-    <Br/>
-    <Br/>
 
-    <form action="">
+    <table class="table w-full">
+        <thead>
+        <tr>
+            <th>№№</th>
+            <th>имя</th>
+            <th>-</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach( $data as $d )
+            <tr class="@if($d->id%2==0) bg-neutral-100 @else bg-neutral-200 @endif" >
+                <td class="p-2 w-[40px]">
+                    {{ $d->id }}
+                </td>
+                <td class="p-2">
+                    <b>{{ $d->name }}</b><br/>
+                    {{ $d->description }}
+                </td>
+                <td class="p-2">
+<a href="">удалить</a>
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+
+
+
+
+    <form action="{{ route('phpcatcom.permission.role.store') }}" method="post">
         <label>
             НАзвание
             <br/>

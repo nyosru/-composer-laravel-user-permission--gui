@@ -1,13 +1,45 @@
-@extends('phpcatcom/permission_gui::layouts.app')
+@extends('phpcatcom/permission/gui::layouts.app')
 
 @section('content')
 
-    roles: {{ $roles }}
+    data: {{ $data }}
 
     <Br/>
     <Br/>
 
-    <form action="{{ route('phpcatcom.permission.role.store') }}" method="post">
+    <table class="table w-full">
+        <thead>
+        <tr>
+            <th>№№</th>
+            <th>имя</th>
+            <th>почта</th>
+            <th>права</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach( $data as $d )
+            <tr class="@if($d->id%2==0) bg-neutral-100 @else bg-neutral-200 @endif" >
+                <td class="p-2">
+                {{ $d->id }}
+                </td>
+                <td class="p-2">
+                {{ $d->name }}
+                </td>
+                <td class="p-2">
+                {{ $d->email }}
+                </td>
+                <td class="p-2">
+
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+
+    <Br/>
+    <Br/>
+
+    <form action="">
         <label>
             НАзвание
             <br/>

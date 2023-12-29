@@ -2,11 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-use Phpсatсom\LaravelPermissionGui\Http\Controllers\PermissionGuiController;
-use Phpсatсom\LaravelPermissionGui\Http\Controllers\RoleController;
-use Phpсatсom\LaravelPermissionGui\Http\Controllers\UserController;
+//use Phpсatсom\LaravelPermissionGui\Http\Controllers\PermissionGuiController;
 
 use App\Http\Controllers\Controller;
+
 
 Route::group([
         'as' => 'phpcatcom.',
@@ -19,24 +18,20 @@ Route::group([
             ]
             , function () {
 
-                Route::get('', function(){
+                Route::get('', [Phpcatcom\Permission\Gui\Controllers\PermissionGuiController::class, 'showIndex'])
+                    ->name('index');
 
-//                    var_dump(Controller) ;
-                    dd(    ''.__FILE__ . ' ' . __LINE__.'' );
-            });
-
-//                Route::get('', [PermissionGuiController::class, 'showIndex'])
-//                    ->name('index');
-
-                Route::resource('role', RoleController::class)
+                Route::resource('role', Phpcatcom\Permission\Gui\Controllers\RoleController::class)
                     ->only('index', 'store');
 
-                Route::resource('user', UserController::class);
+                Route::resource('user', Phpcatcom\Permission\Gui\Controllers\UserController::class)
+                    ->only('index', 'store');
 
-                Route::get('places', [PermissionGuiController::class, 'showPlaces'])
-                    ->name('places');
-                Route::get('setter', [PermissionGuiController::class, 'showSetter'])
-                    ->name('setter');
+                Route::resource('places', Phpcatcom\Permission\Gui\Controllers\PlaceController::class)
+                    ->only('index', 'store');
+
+                Route::resource('setter', Phpcatcom\Permission\Gui\Controllers\SetterController::class)
+                    ->only('index', 'store');
 
             });
     });

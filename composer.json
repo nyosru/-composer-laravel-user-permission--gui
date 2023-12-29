@@ -1,7 +1,7 @@
 {
   "name": "phpcatcom/laravel-permission-gui",
   "description": "easy way for permissions management",
-  "version": "0.7.32",
+  "version": "0.8.1",
   "authors": [
     {
       "name": "Sergey Baklanov php-cat.com",

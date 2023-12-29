@@ -1,4 +1,4 @@
-@extends('phpcatcom/permission_gui::layouts.app')
+@extends('phpcatcom/permission/gui::layouts.app')
 
 @section('content')
 setter

@@ -5,36 +5,62 @@ namespace Phpcatcom\Permission\Gui\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Phpcatcom\Permission\Models\Permission;
 use Phpcatcom\Permission\Models\Role;
 
 //class PermissionController extends BigControllers
-class PermissionController extends Controller
+class SetterController extends Controller
 {
 
-    public function fresh(){
-        Permission::query()->delete();
-        Role::query()->delete();
+    public function index()
+    {
+        $in = PermissionGuiController::$in;
+//        $in['roles'] = Role::all();
+        $in['places'] = [];
+        return view('phpcatcom/permission/gui::setter', $in);
+    }
+
+    public function store()
+    {
+    }
+
+    public function create()
+    {
+    }
+
+    public function show()
+    {
+    }
+
+    public function update()
+    {
+    }
+
+    public function destroy()
+    {
+    }
+
+    public function edit()
+    {
     }
 
 //    public static $in = ['menu' => [
 //        [
-//            'route' => 'phpcatcom.permission.index',
+//            'route' => 'index',
 //            'title' => 'Управление',
 //            'template' => 'phpcatcom/permission-gui::index'
 //        ],
 //        [
-//            'route' => 'phpcatcom.permission.role.index',
+//            'route' => 'roles',
 //            'title' => 'Роли',
 //            'template' => 'phpcatcom/permission-gui::roles'
 //        ],
 //        [
-//            'route' => 'phpcatcom.permission.places',
+//            'route' => 'places',
 //            'title' => 'Места',
 //            'template' => 'phpcatcom/permission-gui::places'
 //        ],
 //        [
-//            'route' => 'phpcatcom.permission.setter',
+//            'route' => 'setter',
 //            'title' => 'Назначение ролей пользователям',
 //            'template' => 'phpcatcom/permission-gui::setter'
 //        ],
