@@ -5,6 +5,7 @@ namespace Phpcatcom\Permission\Gui\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Phpcatcom\Permission\Models\Permission;
 use Phpcatcom\Permission\Models\Role;
 
 //class PermissionController extends BigControllers
@@ -19,27 +20,49 @@ class SetterController extends Controller
         return view('phpcatcom/permission/gui::setter', $in);
     }
 
-    public function store()
+    public function store(Request $request)
+    {
+//        dd($request->all());
+        $perm = Permission::find($request->permission_id);
+        if ($request->action == 'on') {
+            $perm->roles()->attach($request->role_id);
+        } // off
+        else {
+            $perm->roles()->detach($request->role_id);
+        }
+
+//            $e = Permission::insert($request->only('permission_id','role_id'));
+//    }
+
+//        dd([$perm, $request->all()]);
+
+        if ($request->return == 'back') {
+            return back();
+        }
+    }
+
+    public
+    function create()
     {
     }
 
-    public function create()
+    public
+    function show()
     {
     }
 
-    public function show()
+    public
+    function update()
     {
     }
 
-    public function update()
+    public
+    function destroy()
     {
     }
 
-    public function destroy()
-    {
-    }
-
-    public function edit()
+    public
+    function edit()
     {
     }
 

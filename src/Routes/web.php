@@ -30,6 +30,17 @@ Route::group([
                 Route::resource('places', Phpcatcom\Permission\Gui\Controllers\PlaceController::class)
                     ->only('index', 'store');
 
+                Route::group([
+                        'as' => 'places.',
+                        'prefix' => 'places',
+                    ]
+                    , function () {
+                        Route::get('refresh', [Phpcatcom\Permission\Gui\Controllers\PlaceController::class, 'refresh'])
+                            ->name('refresh')
+                        ;
+                    });
+
+
                 Route::resource('setter', Phpcatcom\Permission\Gui\Controllers\SetterController::class)
                     ->only('index', 'store');
 

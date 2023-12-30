@@ -2,6 +2,7 @@
 
 namespace Phpcatcom\Permission\Gui;
 
+//use Illuminate\Support\Facades\Blade;
 use PhpCatCom\Middleware\AuthRoles;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Router;
@@ -24,7 +25,12 @@ class LaravelPermissionGuiServiceProvider extends ServiceProvider
 //        $router->aliasMiddleware('auth.role', AuthRoles::class);
 
         $this->loadViewsFrom(__DIR__ . '/views', 'phpcatcom/permission/gui');
-        require_once(__DIR__ . '/routers.php');
+        require_once(__DIR__ . '/Routes/web.php');
+        require_once(__DIR__ . '/Routes/api.php');
+
+//        Blade::directive('role_in_permission', function ($ar,$role_id) {
+//            return rand(1,2) == 1 ;
+//        });
 
     }
 

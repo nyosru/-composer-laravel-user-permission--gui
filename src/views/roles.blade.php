@@ -36,6 +36,7 @@
 
 
     <form action="{{ route('phpcatcom.permission.role.store') }}" method="post">
+        @csrf
         <label>
             НАзвание
             <br/>

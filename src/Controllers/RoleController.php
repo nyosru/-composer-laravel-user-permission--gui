@@ -15,14 +15,14 @@ class RoleController extends Controller
     public function index()
     {
         $in = PermissionGuiController::$in;
-        $in['data'] = Role::get();
+        $in['data'] = Role::with('users')->get();
         return view('phpcatcom/permission/gui::roles', $in);
     }
 
     public function store( Request $request)
     {
 
-        Role::insert($request->all());
+        Role::insert($request->only('name','description'));
 //        dd($request->all());
 
         return back();

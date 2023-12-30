@@ -5,7 +5,10 @@ namespace Phpcatcom\Permission\Gui\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Phpcatcom\Permission\Controllers\PermissionController;
+use Phpcatcom\Permission\Models\Permission;
 use Phpcatcom\Permission\Models\Role;
+use Illuminate\Support\Facades\Artisan;
 
 //class PermissionController extends BigControllers
 class PlaceController extends Controller
@@ -14,13 +17,33 @@ class PlaceController extends Controller
     public function index()
     {
         $in = PermissionGuiController::$in;
-//        $in['roles'] = Role::all();
-        $in['places'] = [];
+        $in['data_roles'] = Role::all();
+//        $in['places'] = [];
+        $in['data'] = Permission::with('roles')->orderBy('name')->get();
+        foreach( $in['data'] as $p ) {
+            $in['data2'][$p->id] = [];
+            foreach($p->roles as $pr){
+                $in['data2'][$p->id][$pr->id] = 1;
+            }
+        }
+
         return view('phpcatcom/permission/gui::places', $in);
     }
 
     public function store()
     {
+    }
+
+    public function refresh()
+    {
+//        $exitCode = Artisan::call('mail:send', [
+//            'user' => $user, '--queue' => 'default'
+//        ]);
+//        $exitCode = Artisan::call('permissions:generate', [
+////            'user' => $user, '--queue' => 'default'
+//        ]);
+        PermissionController::generate();
+        return back();
     }
 
     public function create()

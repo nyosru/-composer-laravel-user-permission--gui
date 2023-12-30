@@ -6,8 +6,11 @@ namespace Phpcatcom\Permission\Gui\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-//use Phpcatcom\Permission\Models\Role;
+use Phpcatcom\Permission\Models\Role;
 use Phpcatcom\Permission\Models\User;
+
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 
 //class PermissionController extends BigControllers
 class UserController extends Controller
@@ -16,7 +19,8 @@ class UserController extends Controller
     public function index()
     {
         $in = PermissionGuiController::$in;
-        $in['data'] = User::addSelect('id', 'name', 'email')->get();
+        $in['data'] = User::addSelect('id', 'name', 'email','role_id')->with('role')->get();
+        $in['data_roles'] = Role::get();
 
 //        for ($o = 1; $o <= 20; $o++) {
 ////            foreach ($in['data0'] as $dd) {
@@ -40,8 +44,54 @@ class UserController extends Controller
     {
     }
 
-    public function update()
+    public function update($id, Request $request)
     {
+        //        dd([$user,$request->all()]);
+//                dd($request->all());
+//        $user
+//        $user->role_id = $request->role_id;
+//        $user->save();
+
+// validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = [
+            'role_id'       => ['numeric'],
+//            'name'       => 'required',
+//            'email'      => 'required|email',
+//            'shark_level' => 'required|numeric'
+        ];
+        $validator = Validator::make($request->all(), $rules);
+//        $validator = $request->validate( $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return back()
+//            Redirect::to('sharks/' . $id . '/edit')
+                ->withErrors($validator)
+//                ->withInput(Input::except('password'))
+                ;
+        } else {
+            // store
+            $user = User::find($id);
+            $user->role_id = $request->role_id;
+//            $shark->email      = Input::get('email');
+//            $shark->shark_level = Input::get('shark_level');
+            $user->save();
+
+            // redirect
+//            Session::flash('message', 'Successfully updated shark!');
+//            return Redirect::to('sharks');
+            return back();
+//            return back()->session()->flash('status', 'Изменения сохранены!');
+            return redirect()->route('phpcatcom.permission.user.index')->flash('status', 'Изменения сохранены!');
+//            return redirect()->route('phpcatcom.permission.user.index',['status' => 'Изменения сохранены!'])
+//                ->with('status', 'Изменения сохранены!')
+                ;
+        }
+
+
+
+
     }
 
     public function destroy()
