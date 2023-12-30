@@ -1,5 +1,7 @@
 @extends('phpcatcom/permission/gui::layouts.app')
 
 @section('content')
-<p>75555</p>
-    @endsection
+
+            <p>Система управления доступов для ролей и назначение ролей пользователям</p>
+
+@endsection

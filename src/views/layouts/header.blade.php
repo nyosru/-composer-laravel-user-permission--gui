@@ -2,7 +2,7 @@
 <a href="{{ route('phpcatcom.permission.index') }}" class="p-3 m-0 block text-center"><h1
             class="text-3xl"
     >
-        <img src="/phpcat/cat.png" style="display:inline-block; max-height: 4rem;"/>
+        <img src="https://php-cat.com/phpcat/cat.png" style="display:inline-block; max-height: 4rem;"/>
         управление правами доступа</h1></a>
 
 @if(1==2)

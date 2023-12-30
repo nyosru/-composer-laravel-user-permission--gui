@@ -1,6 +1,6 @@
 <!-- Footer container -->
 <footer class="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
-    
+
     @if (1 == 2)
         <div
             class="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
@@ -49,7 +49,6 @@
             </div>
         </div>
     @endif
-
     @if (1 == 2)
     <!-- Main container div: holds the entire content of the footer, including four sections (Tailwind Elements, Products, Useful links, and Contact), with responsive styling and appropriate padding/margins. -->
     <div class="mx-6 py-10 text-center md:text-left">
@@ -153,13 +152,14 @@
         </div>
     </div>
     @endif
-    <!--Copyright section-->
+
     <div class="bg-neutral-200 p-6 text-center dark:bg-neutral-700">
         <span>© 1997-{{ date('Y') }} Все права защищены</span>
-        {{-- <a
-      class="font-semibold text-neutral-600 dark:text-neutral-400"
-      href="https://tailwind-elements.com/"
-      >Tailwind Elements</a
-    > --}}
+        //
+         <a
+      class="text-neutral-600 dark:text-neutral-400"
+      href="https://php-cat.com"
+      ><span class="underline text-blue-400" >php-cat.com</span> создание служб и сервисов</a
+    >
     </div>
 </footer>

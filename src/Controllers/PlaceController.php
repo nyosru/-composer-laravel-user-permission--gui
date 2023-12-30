@@ -46,6 +46,13 @@ class PlaceController extends Controller
         return back();
     }
 
+    public static function fresh()
+    {
+        PermissionGuiController::fresh();
+        PermissionController::generate();
+        return back();
+    }
+
     public function create()
     {
     }

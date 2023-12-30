@@ -21,6 +21,9 @@ Route::group([
                 Route::get('', [Phpcatcom\Permission\Gui\Controllers\PermissionGuiController::class, 'showIndex'])
                     ->name('index');
 
+                Route::get('/opisanie', [Phpcatcom\Permission\Gui\Controllers\PermissionGuiController::class, 'opisanie'])
+                    ->name('opisanie');
+
                 Route::resource('role', Phpcatcom\Permission\Gui\Controllers\RoleController::class)
                     ->only('index', 'store');
 
@@ -37,6 +40,9 @@ Route::group([
                     , function () {
                         Route::get('refresh', [Phpcatcom\Permission\Gui\Controllers\PlaceController::class, 'refresh'])
                             ->name('refresh')
+                        ;
+                        Route::get('fresh', [Phpcatcom\Permission\Gui\Controllers\PlaceController::class, 'fresh'])
+                            ->name('fresh')
                         ;
                     });
 

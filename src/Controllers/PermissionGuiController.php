@@ -35,10 +35,15 @@ class PermissionGuiController extends Controller
             'title' => 'Места (роуты)',
             'template' => 'phpcatcom/permission_gui::places'
         ],
+//        [
+//            'route' => 'phpcatcom.permission.setter.index',
+//            'title' => 'Назначение ролей пользователям',
+//            'template' => 'phpcatcom/permission_gui::setter'
+//        ],
         [
-            'route' => 'phpcatcom.permission.setter.index',
-            'title' => 'Назначение ролей пользователям',
-            'template' => 'phpcatcom/permission_gui::setter'
+            'route' => 'phpcatcom.permission.opisanie',
+            'title' => 'Описание',
+            'template' => 'phpcatcom/permission_gui::opisanie'
         ],
     ]];
 
@@ -58,21 +63,37 @@ class PermissionGuiController extends Controller
     public static function showIndex()
     {
 
+//
+//        if( class_exists('Phpcatcom\Permission\Gui\Controllers\UserController')) {
+//            echo 'Phpсatсom\Permission\Gui\Controllers\UserController<br/>';
+//        }else{
+//            echo __LINE__;
+//        }
+//        self::l();
 
-        if( class_exists('Phpcatcom\Permission\Gui\Controllers\UserController')) {
-            echo 'Phpсatсom\Permission\Gui\Controllers\UserController<br/>';
-        }else{
-            echo __LINE__;
-        }
+//        self::$in['data'] = nl2br(file_get_contents('./../../README.md'));
 
-
-        self::l();
         return view('phpcatcom/permission/gui::index', self::$in);
     }
+    public static function opisanie()
+    {
 
-    public function fresh(){
+//
+//        if( class_exists('Phpcatcom\Permission\Gui\Controllers\UserController')) {
+//            echo 'Phpсatсom\Permission\Gui\Controllers\UserController<br/>';
+//        }else{
+//            echo __LINE__;
+//        }
+//        self::l();
+
+//        self::$in['data'] = nl2br(file_get_contents('./../../README.md'));
+
+        return view('phpcatcom/permission/gui::opisanie', self::$in);
+    }
+
+    public static function fresh(){
         Permission::query()->delete();
-        Role::query()->delete();
+//        Role::query()->delete();
     }
 
 //    public static $in = ['menu' => [
