@@ -14,15 +14,16 @@ use Illuminate\Support\Facades\Artisan;
 class PlaceController extends Controller
 {
 
+
     public function index()
     {
         $in = PermissionGuiController::$in;
         $in['data_roles'] = Role::all();
 //        $in['places'] = [];
         $in['data'] = Permission::with('roles')->orderBy('name')->get();
-        foreach( $in['data'] as $p ) {
+        foreach ($in['data'] as $p) {
             $in['data2'][$p->id] = [];
-            foreach($p->roles as $pr){
+            foreach ($p->roles as $pr) {
                 $in['data2'][$p->id][$pr->id] = 1;
             }
         }

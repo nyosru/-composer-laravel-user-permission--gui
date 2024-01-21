@@ -12,6 +12,15 @@ use Phpcatcom\Permission\Models\Role;
 class SetterController extends Controller
 {
 
+
+    public function setAccessFull( $role, Request $request)
+    {
+        $role2 = Role::findOrFail($role);
+        $role2->access_full = $request->new_status ? true : false;
+        $role2->save();
+        return back();
+    }
+
     public function index()
     {
         $in = PermissionGuiController::$in;

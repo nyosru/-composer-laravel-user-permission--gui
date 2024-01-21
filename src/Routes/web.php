@@ -21,10 +21,16 @@ Route::group([
                 Route::get('', [Phpcatcom\Permission\Gui\Controllers\PermissionGuiController::class, 'showIndex'])
                     ->name('index');
 
-                Route::get('/opisanie', [Phpcatcom\Permission\Gui\Controllers\PermissionGuiController::class, 'opisanie'])
+                    Route::get('opisanie', [Phpcatcom\Permission\Gui\Controllers\PermissionGuiController::class, 'opisanie'])
                     ->name('opisanie');
 
-                Route::resource('role', Phpcatcom\Permission\Gui\Controllers\RoleController::class)
+                Route::group(
+                    ( \Phpcatcom\Permission\Models\Role::count() > 1 ?
+                    [
+                    'middleware' => 'auth.role',
+                ] : [] ), function () {
+
+                    Route::resource('role', Phpcatcom\Permission\Gui\Controllers\RoleController::class)
                     ->only('index', 'store');
 
                 Route::resource('user', Phpcatcom\Permission\Gui\Controllers\UserController::class)
@@ -39,16 +45,18 @@ Route::group([
                     ]
                     , function () {
                         Route::get('refresh', [Phpcatcom\Permission\Gui\Controllers\PlaceController::class, 'refresh'])
-                            ->name('refresh')
-                        ;
+                            ->name('refresh');
                         Route::get('fresh', [Phpcatcom\Permission\Gui\Controllers\PlaceController::class, 'fresh'])
-                            ->name('fresh')
-                        ;
+                            ->name('fresh');
                     });
 
 
                 Route::resource('setter', Phpcatcom\Permission\Gui\Controllers\SetterController::class)
                     ->only('index', 'store');
+                // изменение полного доступа для роли
+                Route::post('setAccessFull/{role}', [Phpcatcom\Permission\Gui\Controllers\SetterController::class, 'setAccessFull'])
+                    ->name('setAccessFull');
 
+            });
             });
     });
