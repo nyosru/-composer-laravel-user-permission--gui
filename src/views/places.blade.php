@@ -29,7 +29,7 @@
                 <th class="p-2 @if($loop->index%2==0) bg-gray-200 @endif ">
                     {{$dr->name}}
 
-                    @include('phpcatcom/permission/gui::places-access_full')
+{{--                    @include('phpcatcom/permission/gui::places-access_full')--}}
 
                 </th>
             @endforeach

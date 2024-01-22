@@ -16,24 +16,31 @@ use Illuminate\Support\Facades\Session;
 class UserController extends Controller
 {
 
+    public function setAccessFull(int $id, Request $request)
+    {
+        $user = User::findOrFail($id);
+        $user->access_full = $request->status_new ? true : false;
+        $user->save();
+        return back();
+    }
+
     public function index()
     {
-        $in = PermissionGuiController::$in;
-        $in['data'] = User::addSelect('id', 'name', 'email','role_id')->with('role')->get();
-        $in['data_roles'] = Role::get();
+        $e = new PermissionGuiController();
+        $in = $e->in;
 
-//        for ($o = 1; $o <= 20; $o++) {
-////            foreach ($in['data0'] as $dd) {
-//                $in['data'][] = ['id'=>rand(),'name'=>rand(),'email'=>rand()];
-////            }
-//        }
+        $in['data'] = User::with('role')->get();
+        $in['data_roles'] = Role::all();
 
         return view('phpcatcom/permission/gui::users', $in);
+
     }
 
     public function store(Request $request)
     {
-        dd($request->all());
+//        dd($request->all());
+        $this->setAccessFull($request->user_id, $request);
+        return back();
     }
 
     public function create()
@@ -55,7 +62,7 @@ class UserController extends Controller
 // validate
         // read more on validation at http://laravel.com/docs/validation
         $rules = [
-            'role_id'       => ['numeric'],
+            'role_id' => ['numeric'],
 //            'name'       => 'required',
 //            'email'      => 'required|email',
 //            'shark_level' => 'required|numeric'
@@ -67,8 +74,7 @@ class UserController extends Controller
         if ($validator->fails()) {
             return back()
 //            Redirect::to('sharks/' . $id . '/edit')
-                ->withErrors($validator)
-//                ->withInput(Input::except('password'))
+                ->withErrors($validator)//                ->withInput(Input::except('password'))
                 ;
         } else {
             // store
@@ -86,10 +92,8 @@ class UserController extends Controller
             return redirect()->route('phpcatcom.permission.user.index')->flash('status', 'Изменения сохранены!');
 //            return redirect()->route('phpcatcom.permission.user.index',['status' => 'Изменения сохранены!'])
 //                ->with('status', 'Изменения сохранены!')
-                ;
+            ;
         }
-
-
 
 
     }

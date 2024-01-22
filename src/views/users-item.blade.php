@@ -1,7 +1,7 @@
 <tr class="@if($loop->index%2==0) bg-neutral-100 @else bg-neutral-200 @endif">
-    <td class="p-2">
-        {{ $d->id }}
-    </td>
+{{--    <td class="p-2">--}}
+{{--        {{ $d->id }}--}}
+{{--    </td>--}}
     <td class="p-2">
         {{ $d->name }}
     </td>
@@ -11,11 +11,18 @@
 
     <td class="p-2">
         <Span class="bg-yellow-300 px-2 py-1">
+            @if($d->access_full)
+                полный доступ
+                @else
         {{ $d->role->name ?? '-' }}
+                @endif
         </Span>
     </td>
 
     <td class="p-2">
+        @if($d->access_full)
+
+        @else
         <form action="{{ route('phpcatcom.permission.user.update',['user'=>$d->id]) }}" method="POST">
 
             {{ method_field('PUT') }}
@@ -43,8 +50,22 @@
             <button class="px-2 py-1 bg-info-500 rounded" type="submit">Назначить</button>
             </nobr>
         </form>
+        @endif
+    </td>
+    <td class="text-center">
+        @include('phpcatcom/permission/gui::users-item-access_full')
+
+{{--        <br/>--}}
+{{--        <br/>--}}
+
+{{--        @include('phpcatcom/permission/gui::livewire.user-listing')--}}
+{{--        <livewire:Phpcatcom/Permission/Gui/Livewire/UserListing  />--}}
+
     </td>
 </tr>
+{{--<tr>--}}
+{{--    <td colspan="6">{{ $d }}</td>--}}
+{{--</tr>--}}
 
 {{--<tr>--}}
 {{--    <td colspan="4">--}}

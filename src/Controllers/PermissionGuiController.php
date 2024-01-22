@@ -7,14 +7,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Phpcatcom\Permission\Models\Permission;
 use Phpcatcom\Permission\Models\Role;
+use Phpcatcom\Permission\Models\User;
 
 use Phpcatcom\Permission\Gui\Controllers\UserController;
+
 //class PermissionController extends BigControllers
 class PermissionGuiController extends Controller
 {
 
-
-    public static $in = ['menu' => [
+    public $in = ['menu' => [
         [
             'route' => 'phpcatcom.permission.index',
             'title' => 'Управление',
@@ -48,50 +49,27 @@ class PermissionGuiController extends Controller
     ]];
 
 
-    public static function l(){
+    public function __construct()
+    {
+        $this->in['full_access_count'] = User::whereAccessFull(true)->count();
+        $this->in['role_count'] = Role::all()->count();
+    }
+
+    public static function l()
+    {
         $classes = get_declared_classes();
 //                    dd($classes);
 //                    $aa = array_search('Phpcatcom',$classes);
 //                    dd($aa);
-        foreach($classes as $c){
-            if( strpos($c,'catcom') )
-                echo $c.'<br/>';
+        foreach ($classes as $c) {
+            if (strpos($c, 'catcom'))
+                echo $c . '<br/>';
         }
 //        dd(22);
     }
 
-    public static function showIndex()
+    public static function fresh()
     {
-
-//
-//        if( class_exists('Phpcatcom\Permission\Gui\Controllers\UserController')) {
-//            echo 'Phpсatсom\Permission\Gui\Controllers\UserController<br/>';
-//        }else{
-//            echo __LINE__;
-//        }
-//        self::l();
-
-//        self::$in['data'] = nl2br(file_get_contents('./../../README.md'));
-
-        return view('phpcatcom/permission/gui::index', self::$in);
-    }
-    public static function opisanie()
-    {
-
-//
-//        if( class_exists('Phpcatcom\Permission\Gui\Controllers\UserController')) {
-//            echo 'Phpсatсom\Permission\Gui\Controllers\UserController<br/>';
-//        }else{
-//            echo __LINE__;
-//        }
-//        self::l();
-
-//        self::$in['data'] = nl2br(file_get_contents('./../../README.md'));
-
-        return view('phpcatcom/permission/gui::opisanie', self::$in);
-    }
-
-    public static function fresh(){
         Permission::query()->delete();
 //        Role::query()->delete();
     }

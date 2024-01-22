@@ -17,7 +17,10 @@ class PlaceController extends Controller
 
     public function index()
     {
-        $in = PermissionGuiController::$in;
+//        $in = PermissionGuiController::$in;
+        $e = new PermissionGuiController();
+        $in = $e->in;
+
         $in['data_roles'] = Role::all();
 //        $in['places'] = [];
         $in['data'] = Permission::with('roles')->orderBy('name')->get();

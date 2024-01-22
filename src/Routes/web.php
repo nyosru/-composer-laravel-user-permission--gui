@@ -18,23 +18,29 @@ Route::group([
             ]
             , function () {
 
-                Route::get('', [Phpcatcom\Permission\Gui\Controllers\PermissionGuiController::class, 'showIndex'])
+                Route::get('', [Phpcatcom\Permission\Gui\Controllers\PermissionGuiPageController::class, 'showIndex'])
                     ->name('index');
 
-                    Route::get('opisanie', [Phpcatcom\Permission\Gui\Controllers\PermissionGuiController::class, 'opisanie'])
+                    Route::get('opisanie', [Phpcatcom\Permission\Gui\Controllers\PermissionGuiPageController::class, 'opisanie'])
                     ->name('opisanie');
 
-                Route::group(
-                    ( \Phpcatcom\Permission\Models\Role::count() > 1 ?
-                    [
-                    'middleware' => 'auth.role',
-                ] : [] ), function () {
+//                dd(\Phpcatcom\Permission\Models\Role::count() );
+
+//                Route::group(
+//                    ( \Phpcatcom\Permission\Models\Role::count() > 1 ?
+//                    [
+//                    'middleware' => 'auth.role',
+//                ] : [] ), function () {
 
                     Route::resource('role', Phpcatcom\Permission\Gui\Controllers\RoleController::class)
                     ->only('index', 'store');
 
                 Route::resource('user', Phpcatcom\Permission\Gui\Controllers\UserController::class)
-                    ->only('index', 'store');
+                    ->only(
+                        'index',
+                        'store'
+                    );
+//                Route::get('u', [ Phpcatcom\Permission\Gui\Controllers\UserController::class, 'index'])->name('user.index');
 
                 Route::resource('places', Phpcatcom\Permission\Gui\Controllers\PlaceController::class)
                     ->only('index', 'store');
@@ -57,6 +63,6 @@ Route::group([
                 Route::post('setAccessFull/{role}', [Phpcatcom\Permission\Gui\Controllers\SetterController::class, 'setAccessFull'])
                     ->name('setAccessFull');
 
-            });
+//            });
             });
     });

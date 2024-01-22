@@ -25,8 +25,8 @@ Route::group([
 //                    ->only('index', 'store');
 //
                 Route::apiResource('user', Phpcatcom\Permission\Gui\Controllers\UserController::class)
-                    ->only('update')
-                ;
+                    ->only('update');
+                Route::post('user/setAccessFull/{id}', [Phpcatcom\Permission\Gui\Controllers\UserController::class, 'setAccessFull'])->name('user.setAccessFull');
 //
 //                Route::resource('places', Phpcatcom\Permission\Gui\Controllers\PlaceController::class)
 //                    ->only('index', 'store');

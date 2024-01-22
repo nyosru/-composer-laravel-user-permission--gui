@@ -33,7 +33,7 @@
         };
     </script>
 
-    {{--    @livewireStyles--}}
+    {{--        @livewireStyles--}}
 
 </head>
 
@@ -42,6 +42,25 @@
 <header>
     @include('phpcatcom/permission/gui::layouts.header')
 </header>
+
+{{--full_access_count: {{$full_access_count ?? 'x'}}--}}
+@if( $full_access_count == 0)
+    <div class="bg-yellow-300 px-10 py-1 m-10 text-center"><b>Внимание!! Управление правами сейчас НЕ работает</b>
+        <br/>
+        Для работы дополнения > назначте полный доступ 1 или более пользователю
+         (можете назначить в <a href="/phpcatcom/permission/user" class="text-blue-500 underline">списке
+            пользователей</a>)
+    </div>
+@else
+    @if( $role_count == 0)
+        <div class="bg-yellow-300 px-10 py-1 m-10 text-center"><b>Добавте роль</b>
+            <br/>
+            Для роли сможете назначить права доступа и затем пользователям назначать подготовленные роли
+            (работа с ролями в <a href="/phpcatcom/permission/role" class="text-blue-500 underline">разделе "роли"</a>)
+        </div>
+@endif
+@endif
+
 <main style="min-height:80vh;">
     <div class="container mx-auto">
         <div class="grid grid-cols-4 gap-4">
@@ -53,6 +72,7 @@
     </div>
 </main>
 @include('phpcatcom/permission/gui::layouts.footer')
+{{--@livewireScripts--}}
 </body>
 
 {{--<script src="/bg/three.min.js"></script>--}}

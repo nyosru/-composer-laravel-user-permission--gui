@@ -23,11 +23,12 @@
     <table class="table w-full">
         <thead>
         <tr>
-            <th>№№</th>
+{{--            <th>№№</th>--}}
             <th>имя</th>
             <th>почта</th>
             <th>текущая роль</th>
-            <th>права</th>
+            <th>действия</th>
+            <th>полный доступ</th>
         </tr>
         </thead>
         <tbody>

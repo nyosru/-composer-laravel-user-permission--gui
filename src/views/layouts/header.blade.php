@@ -3,7 +3,11 @@
             class="text-3xl"
     >
         <img src="https://php-cat.com/phpcat/cat.png" style="display:inline-block; max-height: 4rem;"/>
-        управление правами доступа</h1></a>
+        управление правами доступа
+        @if( $full_access_count > 0)
+            <sup class="bg-green-300 p-1">работает</sup>
+@endif
+    </h1></a>
 
 @if(1==2)
     <div class="container text-center">
